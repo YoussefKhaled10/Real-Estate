@@ -129,23 +129,7 @@ All errors are returned as **clean, human‑readable messages**.
 
 ---
 
-## How to Run
-
-```bash
-# Activate virtual environment
-project\Scripts\activate
-
-# Start backend
-python -m uvicorn deployment.fastapi.main:app --reload --port 5000
-
-# Start UI
-python deployment/gradio/app.py
-
-Open the UI at:
-http://127.0.0.1:7860
-
-
-Final Notes
+## Final Notes
 This project demonstrates:
 
 Strong data engineering skills
@@ -155,8 +139,7 @@ Clean and scalable software architecture
 Full end‑to‑end ML deployment
 
 
-👤 Author
+## Author
 Youssef Khaled
-Machine Learning Engineer
 
-``
+Machine Learning Engineer
