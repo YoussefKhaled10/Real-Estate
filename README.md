@@ -1,141 +1,162 @@
 # Real Estate Price Prediction – End‑to‑End Machine Learning System
+
 ## Project Overview
-This project is a production‑ready end‑to‑end machine learning system for predicting real estate property prices.
-The main challenge of this project was dealing with large, noisy, and low‑quality real‑world data, similar to what is typically encountered in industry environments.
-The system covers the entire ML lifecycle, from raw data preprocessing to deployment with an API and user interface.
+This project is a **production‑ready end‑to‑end machine learning system** for predicting real estate property prices.
+
+The main challenge of this project was dealing with **large, noisy, and low‑quality real‑world data**, similar to what is typically encountered in industry environments.
+
+The system covers the **entire machine learning lifecycle**, from raw data preprocessing to deployment with an API and an interactive user interface.
+
+---
 
 ## Key Features
-✅ Extensive data cleaning and preprocessing for dirty, inconsistent data
-✅ Domain‑driven feature engineering
-✅ Target encoding for high‑cardinality categorical features
-✅ Multiple regression models with comparison
-✅ Hyperparameter optimization using Optuna
-✅ Model explainability using SHAP
-✅ FastAPI backend for inference
-✅ Gradio UI for interactive predictions
-✅ Clean, modular, production‑grade project structure
+- ✅ Extensive data cleaning and preprocessing for dirty, inconsistent data
+- ✅ Domain‑driven feature engineering
+- ✅ Target encoding for high‑cardinality categorical features
+- ✅ Multiple regression models with comparison
+- ✅ Hyperparameter optimization using **Optuna**
+- ✅ Model explainability using **SHAP**
+- ✅ **FastAPI** backend for inference
+- ✅ **Gradio** UI for interactive predictions
+- ✅ Clean, modular, production‑grade project structure
 
+---
 
 ## Data Challenges
-The dataset was large and poorly structured, containing:
+The dataset was **large and poorly structured**, containing:
+- Missing values
+- Inconsistent text formats (areas, titles, locations)
+- Outliers and unrealistic values
+- Noisy categorical variables with high cardinality
 
-Missing values
-Inconsistent text formats (areas, titles, locations)
-Outliers and unrealistic values
-Noisy categorical variables with high cardinality
+### To handle these challenges, the project implements:
+- Robust text parsing using **regular expressions**
+- **KNN Imputation** for missing numerical values
+- **IQR‑based outlier removal**
+- Logical and domain‑based validation constraints
 
-To handle this, the project implements:
-
-Robust text parsing with regex
-KNN Imputation for missing numerical values
-IQR‑based outlier removal
-Logical and domain‑based validation constraints
-
+---
 
 ## Project Architecture
 User (Gradio UI)
-        ↓
+↓
 FastAPI Backend
-        ↓
+↓
 Inference Pipeline
-        ↓
+↓
 ML Model + Encoder
 
-## Folder structure:
+### Folder Structure
+
 src/
 ├── data/        → loading, cleaning, splitting
 ├── features/    → feature encoding & transformations
 ├── models/      → training, evaluation, prediction logic
 └── pipelines/   → training & inference pipelines
-
 deployment/
 ├── fastapi/     → REST API backend
 └── gradio/      → UI frontend
-
 notebooks/       → EDA, experiments, analysis
 
-This structure mirrors real ML systems used in production.
+This structure mirrors **real‑world ML systems used in production**.
 
-## Technologies Used
-Python
-Pandas / NumPy
-Scikit‑learn
-LightGBM
-Optuna
-SHAP
-FastAPI
-Gradio
+---
 
-## Modeling
+##  Technologies Used
+- Python
+- Pandas / NumPy
+- Scikit‑learn
+- LightGBM
+- Optuna
+- SHAP
+- FastAPI
+- Gradio
+
+---
+
+##  Modeling
 Several regression models were evaluated, including:
-LightGBM ✅
-CatBoost
-XGBoost
-Random Forest
-Gradient Boosting
+- ✅ LightGBM
+- CatBoost
+- XGBoost
+- Random Forest
+- Gradient Boosting
 
-LightGBM was selected as the final model due to performance and stability after tuning.
+**LightGBM** was selected as the final model due to its strong performance and stability after hyperparameter tuning.
+
+---
 
 ## Explainability
-SHAP was used to:
+**SHAP** was used to:
+- Analyze global feature importance
+- Understand individual predictions
+- Validate model behavior on real estate features
 
-Analyze global feature importance
-Understand individual predictions
-Validate model behavior on real estate features
+This makes the model **transparent and interpretable**, which is critical for pricing systems.
 
-This makes the model transparent and interpretable, a key requirement in pricing systems.
+---
 
 ## Deployment
-Backend
 
-FastAPI provides a /predict endpoint
-Full input validation with user‑friendly error messages
-Production‑safe inference pipeline
+### Backend
+- FastAPI exposes a `/predict` endpoint
+- Full input validation with **user‑friendly error messages**
+- Production‑safe inference pipeline
 
-Frontend
+### Frontend
+- Gradio UI allows users to input property details
+- Communicates directly with the FastAPI backend
+- Displays clear predictions and validation feedback
 
-Gradio UI allows users to input property details
-Communicates directly with the FastAPI backend
-Displays clear predictions and validation feedback
-
+---
 
 ## Validation & Robustness
-The system includes realistic, domain‑driven validation, preventing:
+The system includes **realistic, domain‑driven input validation**, preventing:
+- Impossible building configurations  
+  (e.g., apartment on floor 50 of a 10‑floor building)
+- Unrealistic areas or room counts
+- Invalid construction years
+- Logically inconsistent inputs
 
-Impossible building configurations (e.g., apartment on floor 50 of a 10‑floor building)
-Unrealistic areas or room counts
-Invalid construction years
-Logically inconsistent inputs
+All errors are returned as **clean, human‑readable messages**.
 
-All errors are returned as clean, human‑readable messages.
+---
 
-Use Cases
+## Use Cases
+- Real estate price estimation
+- ML system architecture demonstration
+- Base system for production deployment
 
-Real estate price estimation
-ML system architecture demonstration
-Base system for production deployment
+---
 
 ## How to Run
-Shell# Activate virtual environment
+
+```bash
+# Activate virtual environment
 project\Scripts\activate
-### Start backend
+
+# Start backend
 python -m uvicorn deployment.fastapi.main:app --reload --port 5000
-### Start UI
+
+# Start UI
 python deployment/gradio/app.py
+
 Open the UI at:
 http://127.0.0.1:7860
 
 
-## Final Notes
+Final Notes
 This project demonstrates:
 
 Strong data engineering skills
-Real‑world ML problem solving
+Real‑world machine learning problem solving
 Attention to production quality
-Clean software architecture
-End‑to‑end ML deployment
+Clean and scalable software architecture
+Full end‑to‑end ML deployment
 
 
-## Author
+👤 Author
 Youssef Khaled
 Machine Learning Engineer
+
+``
